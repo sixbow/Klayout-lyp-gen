@@ -1,7 +1,22 @@
 <?xml version="1.0" ?>
-<root>
-	<Text>
-		<sdkjf/>
-		<sdkjf>Some text here</sdkjf>
-	</Text>
-</root>
+<layer-properties>
+	<properties>
+		<name>NbTiN_GND</name>
+		<frame-color>#ffa500</frame-color>
+		<fill-color>#ffa500</fill-color>
+		<source>0/0@1</source>
+	</properties>
+	<properties>
+		<name>SiC</name>
+		<frame-color>#4b0082</frame-color>
+		<fill-color>#4b0082</fill-color>
+		<source>1/0@1</source>
+	</properties>
+	<properties>
+		<name>NbTiN_Top</name>
+		<frame-color>#ff8c00</frame-color>
+		<fill-color>#ff8c00</fill-color>
+		<source>2/0@1</source>
+	</properties>
+	<name/>
+</layer-properties>
