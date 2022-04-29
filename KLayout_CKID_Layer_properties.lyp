@@ -4,19 +4,50 @@
 		<name>NbTiN_GND</name>
 		<frame-color>#ffa500</frame-color>
 		<fill-color>#ffa500</fill-color>
+		<dither-pattern>I0</dither-pattern>
 		<source>0/0@1</source>
 	</properties>
 	<properties>
 		<name>SiC</name>
-		<frame-color>#4b0082</frame-color>
-		<fill-color>#4b0082</fill-color>
+		<frame-color>#A908B5</frame-color>
+		<fill-color>#A908B5</fill-color>
+		<dither-pattern>I9</dither-pattern>
 		<source>1/0@1</source>
 	</properties>
 	<properties>
 		<name>NbTiN_Top</name>
-		<frame-color>#ff8c00</frame-color>
-		<fill-color>#ff8c00</fill-color>
+		<frame-color>#ff4500</frame-color>
+		<fill-color>#ff4500</fill-color>
+		<dither-pattern>I0</dither-pattern>
 		<source>2/0@1</source>
+	</properties>
+	<properties>
+		<name>Aluminium</name>
+		<frame-color>#0000ff</frame-color>
+		<fill-color>#0000ff</fill-color>
+		<dither-pattern>I0</dither-pattern>
+		<source>4/0@1</source>
+	</properties>
+	<properties>
+		<name>text</name>
+		<frame-color>#gggg00</frame-color>
+		<fill-color>#gggg00</fill-color>
+		<dither-pattern>I4</dither-pattern>
+		<source>5/0@1</source>
+	</properties>
+	<properties>
+		<name>E-beam_Alu</name>
+		<frame-color>#44gg00</frame-color>
+		<fill-color>#44gg00</fill-color>
+		<dither-pattern>I5</dither-pattern>
+		<source>8/0@1</source>
+	</properties>
+	<properties>
+		<name>2inch Circle</name>
+		<frame-color>#0044gg</frame-color>
+		<fill-color>#0044gg</fill-color>
+		<dither-pattern>I1</dither-pattern>
+		<source>9/0@1</source>
 	</properties>
 	<name/>
 </layer-properties>

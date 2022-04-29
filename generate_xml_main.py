@@ -5,11 +5,11 @@ doc = Document()
 root = doc.createElement('layer-properties')
 doc.appendChild(root)
 
-layer_index_arr = ['0','1','2','3','4']
-name_arr = ['NbTiN_GND','SiC','NbTiN_Top','Aluminium']
-color_arr = ['#ffa500','#4b0082','#ff8c00','#0000ff']
-
-for i in range(3):
+layer_index_arr = ['0','1','2','4','5','8','9']
+name_arr = ['NbTiN_GND','SiC','NbTiN_Top','Aluminium','text','E-beam_Alu','2inch Circle']
+color_arr = ['#ffa500','#A908B5','#ff4500','#0000ff','#gggg00','#44gg00','#0044gg']
+pattern_arr = ['I0','I9','I0','I0','I4','I5','I1']
+for i in range(len(name_arr)):
     #Begin: This block makes the name property for a layer.
     layers = doc.createElement('properties')
     root.appendChild(layers)
@@ -24,6 +24,10 @@ for i in range(3):
     sublayers = doc.createElement('fill-color')
     layers.appendChild(sublayers)
     text = doc.createTextNode(color_arr[i])
+    sublayers.appendChild(text)
+    sublayers = doc.createElement('dither-pattern')
+    layers.appendChild(sublayers)
+    text = doc.createTextNode(pattern_arr[i])
     sublayers.appendChild(text)
     sublayers = doc.createElement('source')
     layers.appendChild(sublayers)
