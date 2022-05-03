@@ -1,5 +1,5 @@
 
-
+# Python version 2.7.18 is assumed.
 
 ## Import Ordered dict : This is similar to the type of dict used in PyClewin from sebastiaan.
 import numpy as np
@@ -15,36 +15,38 @@ layers['Polyimide'] = '0ff0f000'
 layers['Aluminum'] = '0fff0000'
 layers['text'] = '05000000'
 ## /Import Ordered dict
+
+#Klayout_lyp_gen function (Part 1)
 from xml.dom.minidom import Document
+def Klayout_lyp_gen(layers, file_name='Klayout_layer_properties.lyp'):
+    """Klayout_lyp_gen(layers, file_name= 'Klayout_layer_properties.lyp')
+    Reads layer dictionary and writes .lyp file for use in Klayout.
 
+    Parameters:
+    argument1 (Ordered dict): layers file from PyClewin
+    argument2 (string): file name used to write layer properties to 
+    default: Klayout_layer_properties.lyp
+    Example: filename[:-4]+'.lyp'    |  this way filename can be 'MyChip.cif' and then layer file becomes 'MyChip.lyp'
 
+    Returns:
+    Nothing!
+    Side Effect: Writes .lyp file for use in Klayout
 
-def Klayout_lyp_gen(layers, file_name ):
-    print( layers.keys()[1])
-    print(layers.values()[1][0])
-    print(layers.values()[1][1])
-    print(layers.values()[1][2:8])
-    print(layers['text'])
-
+   """
+    
     dict_length = len(layers.keys()) # Obtains the length of the user defined dict. 
-    print(dict_length)
     layer_index_arr = list(range(0,dict_length))
-    print(layer_index_arr)
     fill_lookup = OrderedDict()
     fill_lookup['f'] = 'I0'
     fill_lookup['3'] = 'I9'
     fill_lookup['2'] = 'I5'
     fill_lookup['5'] = 'I4' # Double hatch is converted to tight hatching in Klayout because Klayout does not have this option.
-
     out_lookup = OrderedDict()
     out_lookup['0'] = 'I0'
     out_lookup['1'] = 'I6'
     out_lookup['2'] = 'I4'
     out_lookup['3'] = 'I5'
     out_lookup['4'] = 'I3'
-
-    print(layers.values()[0][2:8])
-
     try:
         doc = Document()
 
@@ -89,11 +91,16 @@ def Klayout_lyp_gen(layers, file_name ):
         root.appendChild(placehold_name)
         xml_str = doc.toprettyxml(indent ="\t") 
         
-
-        with open(save_path_file, "w") as f:
+        
+        with open(file_name, "w") as f:
             f.write(xml_str) 
+        print('Klayout-lyp-gen-addon: Succes! wrote: '+file_name)
+    
+    except Exception,e: print("Klayout-lyp-gen-addon:"+str(e)+"\n Klayout-lyp-gen-addon: Whoops-a-daisy. These are not supported parameters for Klayout-lyp-gen-addon!. Not generating lyp file")
+#/Klayout_lyp_gen function (End Part 1)
 
-    except:
-        print("Klayout-lyp-gen-addon: Whoops-a-daisy. These are not supported parameters for Klayout-lyp-gen-addon!. Not generating lyp file")
-save_path_file = "KLayout_Layer_properties.lyp" #Name of the xml file
+#Calling the lyp_gen. (Part 2) - This needs to be done after definition of layers, save_path_file
+save_path_file = "my_Klayout_layersV0.lyp" #Name of the xml file
 Klayout_lyp_gen(layers,save_path_file)
+#Calling the lyp_gen. (Part 2)
+
